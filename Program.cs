@@ -4,25 +4,36 @@
     {
         static void Main(string[] args)
         {
+            Processor processor = new Processor();
+            processor.Work();
+            MotherBoard motherBoard = new MotherBoard();
+            motherBoard.Work();
+            GraphicCard graphicCard = new GraphicCard();
+            graphicCard.Work();
         }
-        class IndexingClass
+        abstract class ComputerPart
         {
-            private int[] array;
-
-            public IndexingClass(int[] array)
+            public abstract void Work();
+        }
+        class Processor : ComputerPart
+        {
+            public override void Work()
             {
-                this.array = array;
+                Console.WriteLine("This Processor");
             }
-            public int this[int i]
+        }
+        class MotherBoard : ComputerPart
+        {
+            public override void Work()
             {
-                get
-                {
-                    return array[i];
-                }
-                set
-                {
-                    array[i] = value;
-                }
+                Console.WriteLine("This MotherBoard");
+            }
+        }
+        class GraphicCard : ComputerPart
+        {
+            public override void Work()
+            {
+                Console.WriteLine("This GraphicCard");
             }
         }
     }
