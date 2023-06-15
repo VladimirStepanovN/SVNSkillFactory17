@@ -4,23 +4,26 @@
     {
         static void Main(string[] args)
         {
-            Console.WriteLine(Obj.Parent);
-            Console.WriteLine(Obj.DaysInWeek);
-            Console.WriteLine(Obj.MaxValue);
+            int num1 = 7;
+            int num2 = -13;
+            int num3 = 0;
+            Console.WriteLine(num1.GetNegative()); //-7
+            Console.WriteLine(num1.GetPositive()); //7
+            Console.WriteLine(num2.GetNegative()); //-13
+            Console.WriteLine(num2.GetPositive()); //13
+            Console.WriteLine(num3.GetNegative()); //0
+            Console.WriteLine(num3.GetPositive()); //0
         }
-        class Obj
+    }
+    static class IntExtensions
+    {
+        public static int GetNegative(this int number)
         {
-            public string Name;
-            public string Description;
-            public static string Parent;
-            public static int DaysInWeek;
-            public static int MaxValue;
-            static Obj()
-            {
-                Parent = "System.Object";
-                DaysInWeek = 7;
-                MaxValue = 2000;
-            }
+            return (number > 0) ? -number : number;
+        }
+        public static int GetPositive(this int number)
+        {
+            return (number < 0) ? -number : number;
         }
     }
 }
