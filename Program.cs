@@ -4,29 +4,25 @@
     {
         static void Main(string[] args)
         {
-            Obj a = new Obj {Value =  5};
-            Obj b = new Obj { Value = 6};
-            Obj c = a + b;
-            Obj d = b - a;
-            Console.WriteLine(c.Value);
-            Console.WriteLine(d.Value);
         }
-        class Obj
+        class IndexingClass
         {
-            public int Value;
-            public static Obj operator + (Obj a, Obj b)
+            private int[] array;
+
+            public IndexingClass(int[] array)
             {
-                return new Obj
-                {
-                    Value = a.Value + b.Value
-                };
+                this.array = array;
             }
-            public static Obj operator -(Obj a, Obj b)
+            public int this[int i]
             {
-                return new Obj
+                get
                 {
-                    Value = a.Value - b.Value
-                };
+                    return array[i];
+                }
+                set
+                {
+                    array[i] = value;
+                }
             }
         }
     }
