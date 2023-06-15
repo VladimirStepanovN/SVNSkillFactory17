@@ -5,35 +5,22 @@
         static void Main(string[] args)
         {
             DerivedClass dc = new();
-            dc.Counter = 10;
-            Console.WriteLine(dc.Counter);
-            dc.Counter = 0;
-            Console.WriteLine(dc.Counter);
-            dc.Counter = -1;
-            Console.WriteLine(dc.Counter);
+            dc.Display();
         }
-        class BaseClass
+    }
+    class BaseClass
+    {
+        public virtual void Display()
         {
-            public virtual int Counter
-            {
-                get;
-                set;
-            }
+            Console.WriteLine("Метод класса BaseClass");
         }
-        class DerivedClass : BaseClass
+    }
+    class DerivedClass : BaseClass
+    {
+        public override void Display()
         {
-            private int counter;
-            public override int Counter
-            {
-                get
-                {
-                    return counter;
-                }
-                set
-                {
-                    if (value >= 0) counter = value;
-                }
-            }
+            base.Display();
+            Console.WriteLine("Метод класса DerivedClass");
         }
     }
 }
