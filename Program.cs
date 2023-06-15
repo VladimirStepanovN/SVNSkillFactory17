@@ -5,15 +5,17 @@
         static void Main(string[] args)
         {
         }
-        class ElectricEngine { }
-        class GasEngine { }
-        class Battery { }
-        class Differential { }
-        class Wheel { }
-        class Car<T1>
+        class Engine { }
+        class ElectricEngine : Engine { }
+        class GasEngine : Engine { }
+        class CarPart { }
+        class Battery : CarPart { }
+        class Differential : CarPart { }
+        class Wheel : CarPart { }
+        class Car<T1> where T1 : Engine
         {
             public T1 Engine;
-            public virtual void ChangePart<T2>(T2 newPart)
+            public virtual void ChangePart<T2>(T2 newPart) where T2 : CarPart
             {
             }
         }
