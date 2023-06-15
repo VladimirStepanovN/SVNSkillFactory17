@@ -5,11 +5,11 @@
         static void Main(string[] args)
         {
         }
-        class ElectricEngine { }
-        class GasEngine { }
-        class Car<T>
+        class Record<T1, T2>
         {
-            public T Engine;
+            public T1 Id;
+            public DateTime Date;
+            public T2 Value;
         }
     }
 }
