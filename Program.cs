@@ -4,50 +4,29 @@
     {
         static void Main(string[] args)
         {
-            A a = new A();
-            A ab = new B();
-            A ac = new C();
-            A ad = new D();
-            A ae = new E();
-            a.Display();
-            ab.Display();
-            ac.Display();
-            ad.Display();
-            ae.Display();
+            Obj a = new Obj {Value =  5};
+            Obj b = new Obj { Value = 6};
+            Obj c = a + b;
+            Obj d = b - a;
+            Console.WriteLine(c.Value);
+            Console.WriteLine(d.Value);
         }
-        class A
+        class Obj
         {
-            public virtual void Display()
+            public int Value;
+            public static Obj operator + (Obj a, Obj b)
             {
-                Console.WriteLine("A");
+                return new Obj
+                {
+                    Value = a.Value + b.Value
+                };
             }
-        }
-        class B : A
-        {
-            public new void Display()
+            public static Obj operator -(Obj a, Obj b)
             {
-                Console.WriteLine("B");
-            }
-        }
-        class C : A
-        {
-            public override void Display()
-            {
-                Console.WriteLine("C");
-            }
-        }
-        class D : B
-        {
-            public new void Display()
-            {
-                Console.WriteLine("D");
-            }
-        }
-        class E : C
-        {
-            public new void Display()
-            {
-                Console.WriteLine("E");
+                return new Obj
+                {
+                    Value = a.Value - b.Value
+                };
             }
         }
     }
