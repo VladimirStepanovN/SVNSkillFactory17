@@ -5,11 +5,17 @@
         static void Main(string[] args)
         {
         }
-        class Record<T1, T2>
+        class ElectricEngine { }
+        class GasEngine { }
+        class Battery { }
+        class Differential { }
+        class Wheel { }
+        class Car<T1>
         {
-            public T1 Id;
-            public DateTime Date;
-            public T2 Value;
+            public T1 Engine;
+            public virtual void ChangePart<T2>(T2 newPart)
+            {
+            }
         }
     }
 }
