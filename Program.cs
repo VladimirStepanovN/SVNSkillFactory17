@@ -4,17 +4,22 @@
     {
         static void Main(string[] args)
         {
-            int num1 = 3;
-            int num2 = 58;
-            Helper.Swap(ref num1, ref num2);
-            Console.WriteLine(num1); //58
-            Console.WriteLine(num2); //3
+            Console.WriteLine(Obj.Parent);
+            Console.WriteLine(Obj.DaysInWeek);
+            Console.WriteLine(Obj.MaxValue);
         }
-        class Helper
+        class Obj
         {
-            public static void Swap(ref int one, ref int two)
+            public string Name;
+            public string Description;
+            public static string Parent;
+            public static int DaysInWeek;
+            public static int MaxValue;
+            static Obj()
             {
-                (one, two) = (two, one);
+                Parent = "System.Object";
+                DaysInWeek = 7;
+                MaxValue = 2000;
             }
         }
     }
