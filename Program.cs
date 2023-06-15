@@ -4,23 +4,51 @@
     {
         static void Main(string[] args)
         {
-            DerivedClass dc = new();
-            dc.Display();
+            A a = new A();
+            A ab = new B();
+            A ac = new C();
+            A ad = new D();
+            A ae = new E();
+            a.Display();
+            ab.Display();
+            ac.Display();
+            ad.Display();
+            ae.Display();
         }
-    }
-    class BaseClass
-    {
-        public virtual void Display()
+        class A
         {
-            Console.WriteLine("Метод класса BaseClass");
+            public virtual void Display()
+            {
+                Console.WriteLine("A");
+            }
         }
-    }
-    class DerivedClass : BaseClass
-    {
-        public override void Display()
+        class B : A
         {
-            base.Display();
-            Console.WriteLine("Метод класса DerivedClass");
+            public new void Display()
+            {
+                Console.WriteLine("B");
+            }
+        }
+        class C : A
+        {
+            public override void Display()
+            {
+                Console.WriteLine("C");
+            }
+        }
+        class D : B
+        {
+            public new void Display()
+            {
+                Console.WriteLine("D");
+            }
+        }
+        class E : C
+        {
+            public new void Display()
+            {
+                Console.WriteLine("E");
+            }
         }
     }
 }
